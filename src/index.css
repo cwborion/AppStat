@@ -1,3 +1,7 @@
+html {
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -6,6 +10,30 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(/img/funkycity.png) no-repeat;
+  background-size: 100%;
+  background-position: bottom;
+  background-color: rgb(0,0,52);
+  min-height: 100%;
+}
+
+.logo-sz {
+  font-size: 30px;
+}
+
+.nav-bg {
+  background-color: rgb(24, 22, 26);
+}
+
+form {
+  padding: 20px;
+  margin-top: 60px;
+}
+
+.edit-buttons {
+  border: 1px solid rgb(148, 147, 147);
+  padding: 5px;
+  background-color: rgb(37,166,154);
 }
 
 code {
