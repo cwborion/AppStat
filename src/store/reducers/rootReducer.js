@@ -1,11 +1,11 @@
-import authReducer from './authReducer'
+// import authReducer from './authReducer'
 import jobReducer from './jobReducer'
 
 
 import { combineReducers } from 'redux'
 // subject to change, just some boilerplate from another project
 const rootReducer = combineReducers({
-  auth: authReducer,
+  // auth: authReducer,
   jobs: jobReducer
 });
 

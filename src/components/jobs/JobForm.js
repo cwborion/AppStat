@@ -6,7 +6,8 @@ class JobForm extends Component {
     employer: '',
     jobDescription: '',
     skills: '',
-    dateApplied: Date
+    dateApplied: Date,
+    notes: ''
   }
 
   handleChange = (e) => {
@@ -20,35 +21,41 @@ class JobForm extends Component {
     e.preventDefault();
     console.log(this.state);
   }
-  render () {
+  render() {
     return (
       <div className="row">
         <div className="col s12 m10">
-          <form  onSubmit={this.handleSubmit} className='white'>
+          <form onSubmit={this.handleSubmit} className='white'>
+            <h5 className="grey-text text-darken-3">Job Information</h5>
             <div className="input-field">
-              <label htmlFor='jobTitle'>Job Title</label>
+              <label htmlFor='jobTitle' className="grey-text text-darken-2">Job Title</label>
               <input type='text' id='jobTitle' onChange={this.handleChange} />
             </div>
 
             <div className="input-field">
-              <label htmlFor='employer'>Company/Employer</label>
+              <label htmlFor='employer' className="grey-text text-darken-2">Company/Employer</label>
               <input type='text' id='employer' onChange={this.handleChange} />
             </div>
 
             <div className="input-field">
-              <label htmlFor='jobDescription'>Job Description</label>
+              <label htmlFor='jobDescription' className="grey-text text-darken-2">Job Description</label>
               <textarea id='jobDescription' className="materialize-textarea" onChange={this.handleChange}>
               </textarea>
             </div>
 
             <div className="input-field">
-              <label htmlFor='skills'>Emphasized Skills</label>
+              <label htmlFor='skills' className="grey-text text-darken-2">Emphasized Skills</label>
               <textarea id='skills' className="materialize-textarea" onChange={this.handleChange}></textarea>
             </div>
 
             <div>
-              <label htmlFor='dateApplied'>Date of application submitted</label>
+              <label htmlFor='dateApplied' className="grey-text text-darken-2">Date of application submitted</label>
               <input type='date' id='dateApplied' onChange={this.handleChange} />
+            </div>
+
+            <div className="input-field">
+              <label htmlFor='notes' className="grey-text text-darken-2">Additional Notes/Responses</label>
+              <textarea id='notes' className="materialize-textarea" onChange={this.handleChange}></textarea>
             </div>
 
             <div className="input-field">

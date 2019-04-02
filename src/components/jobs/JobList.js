@@ -1,12 +1,17 @@
 import React from 'react'
 import JobSummary from './JobSummary'
+import { Link } from 'react-router-dom'
 
-const JobList = () => {
+const JobList = ({ jobs }) => {
   return (
     <div>
-      <JobSummary />
-      <JobSummary />
-      <JobSummary />
+      {jobs && jobs.map(job => {
+        return (
+          <Link to={'/job/' + job.id} key={job.id}>
+            <JobSummary job={job} />
+          </Link>
+        )
+      })}
     </div>
   )
 }
