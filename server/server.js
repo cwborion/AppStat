@@ -84,7 +84,7 @@ app.put('/job/edit/:id', (req, res) => {
 
 app.delete('/job/delete/:id', (req, res) => {
   console.log('on job/delete/:id, req,body sent in is :\n', req.body);
-  Job.remove({
+  Job.deleteOne({
     _id: req.params.id
   }, (err, job) => {
     if (err)
@@ -93,7 +93,7 @@ app.delete('/job/delete/:id', (req, res) => {
   })
 });
 
-// (node:12477) DeprecationWarning: collection.remove is deprecated. Use deleteOne, deleteMany, or bulkWrite instead. follow up on this!!
+
 
 
 app.listen(port, () => {
