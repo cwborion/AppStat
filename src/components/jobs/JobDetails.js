@@ -38,12 +38,10 @@ const mapStateToProps = (state, ownProps) => {
   console.log('state is: ', state);
   const id = ownProps.match.params.id;
   const jobs = state.jobs.jobs;
-  const job = jobs ? jobs[id] : null; // this is where things are messing up
-  // console.log('job.id is: ', job.id);
+  // const job = jobs ? jobs[id] : null; // this is where things are messing up
   console.log('id is: ', id);
-  // console.log(jobs[id].id)
   return {
-    job: job
+    job: jobs.find(job => job.id === id)
   }
 }
 
