@@ -31,7 +31,23 @@ const initState = {
 }
 
 const jobReducer = (state = initState, action) => {
-  return state;
-}
+  switch (action.type) {
+    case 'ADD_JOB':
+      console.log('add job', action.job);
+      return state;
+    case 'ADD_JOB_ERROR':
+      console.log('add job error', action.err);
+      return state;
+  // may not need code below
+    case 'GET_ALL_JOBS':
+      console.log('get all jobs', action.jobs);
+      return state;
+    case 'GET_ALL_JOBS_ERROR':
+      console.log('get all jobs error', action.err);
+      return state;
+    default: 
+      return state;
+  }
+};
 
-export default jobReducer
+export default jobReducer;

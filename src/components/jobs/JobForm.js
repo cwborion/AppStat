@@ -1,7 +1,11 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addJob } from '../../store/actions/jobActions'
 
 class JobForm extends Component {
   state = {
+    firstName: 'Caleb',
+    lastName: 'Brenner',
     jobTitle: '',
     employer: '',
     jobDescription: '',
@@ -20,6 +24,7 @@ class JobForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(this.state);
+    this.props.addJob(this.state);
   }
   render() {
     return (
@@ -68,4 +73,10 @@ class JobForm extends Component {
   }
 }
 
-export default JobForm
+const mapDispatchToProps = dispatch => {
+  return {
+    addJob: (job) => dispatch(addJob(job))
+  }
+}
+
+export default connect(null, mapDispatchToProps)(JobForm)

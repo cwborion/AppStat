@@ -1,8 +1,19 @@
 import React, { Component } from 'react'
 import JobList from '../jobs/JobList'
 import { connect } from 'react-redux'
+import { getJobs } from '../../store/actions/jobActions'
 
 class Dashboard extends Component {
+
+  componentDidMount() {
+    return fetch('http://localhost:3001/jobs')
+    .then((res) => res.json())
+    .then(jobs => this.setState({ jobs }))
+    .then(() => console.log('this.state.jobs is: ', this.state.jobs))
+    .catch(err => console.log('error: ', err));
+    // this.props.getJobs();
+  }
+
   render() {
     console.log('props are: ', this.props);
     const { jobs } = this.props;
@@ -26,4 +37,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+const mapDispatchToProps = dispatch => {
+  return {
+    getJobs: (jobs) => dispatch(getJobs(jobs))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard)
