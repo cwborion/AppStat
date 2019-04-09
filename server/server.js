@@ -42,6 +42,25 @@ app.post('/job/create', (req, res) => {
   })
 });
 
+// app.post('/job/create', (req, res) => {
+//   console.log('on /job/create, req.body sent in is :\n', req.body);
+//   Job.create(
+//     {
+//       firstName: 'Caleb',
+//       lastName: 'Brenner',
+//       ...req.body,
+//     }
+//   )
+//     .then(data => {
+//       console.log('Data returned from  Create Job ', data);
+//       res.json(data);
+//     })
+//     .catch(err => {
+//       res.json({ code: 400, message: "job post failed", error: err });
+//     });
+// });
+// above code is test, commented out block above should probably be used
+
 // GET all jobs
 
 app.get('/jobs', (req, res) => {

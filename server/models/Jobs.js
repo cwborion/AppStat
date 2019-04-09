@@ -4,6 +4,12 @@ const Schema = mongoose.Schema;
 
 const JobSchema = new Schema(
   {
+    firstName: {
+      type: String
+    },
+    lastName: {
+      type: String
+    },
     jobTitle: {
       type: String,
       // required: true,
