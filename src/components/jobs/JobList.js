@@ -7,7 +7,7 @@ const JobList = ({ jobs }) => {
     <div>
       {jobs && jobs.map(job => {
         return (
-          <Link to={'/job/' + job.id} key={job.id}>
+          <Link to={'/job/' + job._id} key={job._id}>
             <JobSummary job={job} />
           </Link>
         )

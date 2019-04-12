@@ -6,12 +6,15 @@ import { getJobs } from '../../store/actions/jobActions'
 class Dashboard extends Component {
 
   componentDidMount() {
+    // This function should only call the getJobs function as a property, not set the state I THINK
     return fetch('http://localhost:3001/jobs')
     .then((res) => res.json())
     .then(jobs => this.setState({ jobs }))
-    .then(() => console.log('this.state.jobs is: ', this.state.jobs))
+    .then(() => {
+      console.log('this.state.jobs is: ', this.state.jobs);
+      this.props.getJobs(this.state.jobs);
+    })
     .catch(err => console.log('error: ', err));
-    // this.props.getJobs();
   }
 
   render() {

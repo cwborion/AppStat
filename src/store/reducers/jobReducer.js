@@ -1,7 +1,7 @@
 const initState = {
   jobs: [
     { 
-      id: '1', 
+      _id: '1', 
       jobTitle: 'Software Developer', 
       employer: 'Google', 
       jobDescription: 'Implement firebase to products', 
@@ -10,7 +10,7 @@ const initState = {
       notes: 'good pay' 
     },
     { 
-      id: '2', 
+      _id: '2', 
       jobTitle: 'Front End Developer', 
       employer: 'Austin Fraser', 
       jobDescription: 'Develop products for clients', 
@@ -19,7 +19,7 @@ const initState = {
       notes: 'company helps people get jobs' 
     },
     { 
-      id: '3', 
+      _id: '3', 
       jobTitle: 'Computer Programmer', 
       employer: 'TelSys', 
       jobDescription: 'Write functional code with existing software for products', 
@@ -41,7 +41,9 @@ const jobReducer = (state = initState, action) => {
   // may not need code below
     case 'GET_ALL_JOBS':
       console.log('get all jobs', action.jobs);
-      return state;
+      // line below should probably be different
+      return {...state, jobs: action.jobs};
+      // return state;
     case 'GET_ALL_JOBS_ERROR':
       console.log('get all jobs error', action.err);
       return state;
