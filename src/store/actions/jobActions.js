@@ -17,34 +17,24 @@ export const addJob = (job) => {
   }
 };
 
-// not sure if will need below code
-// this is where the new state should be set. NOT from Dashboard.js
-export const getJobs = (jobs) => {
+export const getJobs = () => {
   return (dispatch, getState) => {
-    return fetch('http://localhost:3001/jobs')
-    .then(() => {
-      dispatch({ type: 'GET_ALL_JOBS', jobs});
-      console.log(jobs);
+    return fetch('http://localhost:3001/jobs', {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json'
+      }
     })
-    .catch((err) => {
-      dispatch({ type: 'GET_ALL_JOBS_ERROR', err});
-    })
-  }
+      .then(response => response.json())
+      .then((jobs) => {
+        console.log('jobs res is ', jobs);
+        dispatch({ type: 'GET_ALL_JOBS', jobs })
+        return jobs;
+      }).catch((err) => {
+        dispatch({ type: 'GET_ALL_JOBS_ERROR', err })
+      });
+  };
 }
 
-// export const getJobs = (jobs) => {
-//   return (dispatch, getState) => {
-//     const state = getState(jobs);
-//     return fetch('http://localhost:3001/jobs')
-//       .then((res) => res.json())
-//       .then(() => {
-//         dispatch({ type: 'GET_ALL_JOBS', jobs });
-//         console.log(jobs);
-//       })
-//       .then(() => {
-//         console.log('log is', state.jobs);
-//       })
-//       .catch(err => console.log('error: ', err));
-//   }
-// }
 

@@ -6,15 +6,8 @@ import { getJobs } from '../../store/actions/jobActions'
 class Dashboard extends Component {
 
   componentDidMount() {
-    // This function should only call the getJobs function as a property, not set the state I THINK
-    return fetch('http://localhost:3001/jobs')
-    .then((res) => res.json())
-    .then(jobs => this.setState({ jobs }))
-    .then(() => {
-      console.log('this.state.jobs is: ', this.state.jobs);
-      this.props.getJobs(this.state.jobs);
-    })
-    .catch(err => console.log('error: ', err));
+    this.props.getJobs()
+      // console.log(this.state);
   }
 
   render() {
@@ -34,7 +27,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state.jobs.jobs is: ', state.jobs.jobs);
+  console.log('state mapped to props is: ', state);
   return {
     jobs: state.jobs.jobs
   }
@@ -42,7 +35,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getJobs: (jobs) => dispatch(getJobs(jobs))
+    getJobs: () => dispatch(getJobs())
   }
 }
 

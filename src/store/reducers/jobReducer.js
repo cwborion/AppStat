@@ -41,9 +41,11 @@ const jobReducer = (state = initState, action) => {
   // may not need code below
     case 'GET_ALL_JOBS':
       console.log('get all jobs', action.jobs);
-      // line below should probably be different
-      return {...state, jobs: action.jobs};
-      // return state;
+      // is below okay to set state that way?
+      return {
+        ...state,
+        jobs: action.jobs
+      };
     case 'GET_ALL_JOBS_ERROR':
       console.log('get all jobs error', action.err);
       return state;
