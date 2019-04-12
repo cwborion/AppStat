@@ -64,7 +64,7 @@ app.post('/job/create', (req, res) => {
 // GET all jobs
 
 app.get('/jobs', (req, res) => {
-  console.log('on jobs, req,body sent in is :\n', req.body);
+  console.log('on jobs, req.body sent in is :\n', req.body);
   Job.find((err, jobs) => {
     // why green squiggly under fat arrow above?
     if (err)
@@ -76,7 +76,7 @@ app.get('/jobs', (req, res) => {
 // GET specific job by id
 
 app.get('/job/:id', (req, res) => {
-  console.log('on job/:id, req,body sent in is :\n', req.body);
+  console.log('on job/:id, req.body sent in is :\n', req.body);
   Job.findById(req.params.id, (err, job) => {
     if (err)
       res.send(err);
@@ -87,7 +87,7 @@ app.get('/job/:id', (req, res) => {
 // PUT / update specific job by id
 
 app.put('/job/edit/:id', (req, res) => {
-  console.log('on job/edit/:id, req,body sent in is :\n', req.body);
+  console.log('on job/edit/:id, req.body sent in is :\n', req.body);
   Job.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -102,7 +102,7 @@ app.put('/job/edit/:id', (req, res) => {
 // DELETE specific job by id
 
 app.delete('/job/delete/:id', (req, res) => {
-  console.log('on job/delete/:id, req,body sent in is :\n', req.body);
+  console.log('on job/delete/:id, req.body sent in is :\n', req.body);
   Job.deleteOne({
     _id: req.params.id
   }, (err, job) => {
