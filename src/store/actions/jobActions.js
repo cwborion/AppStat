@@ -57,4 +57,26 @@ export const getJob = (_id) => {
   };
 }
 
+export const updateJob = (id, job) => {
+  console.log('job id is ', id);
+  return (dispatch, getState) => {
+    return fetch(`http://localhost:3001/job/edit/${id}`, {
+      method: 'PUT',
+      mode: 'cors',
+      body: JSON.stringify(job),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then((response) => response.json())
+      .then((job) => {
+        console.log('job update res is ', job);
+        dispatch({ type: 'UPDATE_JOB', job });
+      })
+      .catch((err) => {
+        dispatch({ type: 'UPDATE_JOB_ERROR', err });
+      });
+  }
+};
+
 

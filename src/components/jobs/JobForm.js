@@ -24,7 +24,7 @@ class JobForm extends Component {
     this.setState({
       [e.target.id]: e.target.value
     })
-    // console.log(this.state);
+    console.log(this.state);
   }
 
   handleSubmit = (e) => {
@@ -103,7 +103,6 @@ class JobForm extends Component {
               <input 
                 type='date' 
                 id='dateApplied' 
-                // value={this.state.dateApplied} 
                 value={moment(this.state.dateApplied).format('YYYY-MM-DD')} 
                 onChange={this.handleChange} 
               />

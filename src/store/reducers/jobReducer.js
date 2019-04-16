@@ -55,6 +55,12 @@ const jobReducer = (state = initState, action) => {
     case 'GET_JOB_ERROR':
       console.log('get job error', action.err)
       return state;
+    case 'UPDATE_JOB':
+      console.log('update job', action.job)
+      return state;
+    case 'UPDATE_JOB_ERROR':
+      console.log('update job error', action.err)
+      return state;
     default: 
       return state;
   }
