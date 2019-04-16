@@ -18,7 +18,7 @@ class App extends Component {
             <Route exact path='/' component={Dashboard} />
             <Route path='/job/:id' component={JobDetails} />
             <Route path='/add-job' component={AddJob} />
-            <Route path='/edit-job' component={EditJob} />
+            <Route path='/edit-job/:id' component={EditJob} />
             <Route path='/signin' component={SignIn} />
             <Route path='/signup' component={SignUp} />
           </Switch>

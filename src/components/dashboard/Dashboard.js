@@ -11,7 +11,7 @@ class Dashboard extends Component {
   }
 
   render() {
-    console.log('props are: ', this.props);
+    // console.log('props are: ', this.props);
     const { jobs } = this.props;
     return (
       <div className='container'>
@@ -27,7 +27,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state mapped to props is: ', state);
+  // console.log('state mapped to props is: ', state);
   return {
     jobs: state.jobs.jobs
   }

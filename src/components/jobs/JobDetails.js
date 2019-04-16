@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+// import { Redirect } from 'react-router-dom'
 
 const JobDetails = (props) => {
   const { job } = props;
@@ -19,7 +20,7 @@ const JobDetails = (props) => {
               <p>Emphasized skills: { job.skills }</p>
               <p>Date applied to job: { job.dateApplied } 'March 27th, 2019'</p>
               <p>Additional Notes/Responses: { job.notes }</p>
-              <Link className="white-text edit-buttons" to='/edit-job'>Edit Job Info</Link>
+              <Link className="white-text edit-buttons" to={'/edit-job/' + props.match.params.id}>Edit Job Info</Link>
             </div>
           </div>
         </div>
@@ -27,9 +28,12 @@ const JobDetails = (props) => {
     )
   } else {
     return (
+      // Find out why disappears on refresh
+      // perhaps there is a NPM connect package that will work
       <div className="container center">
         <p className='white-text'>Loading Job...</p>
       </div>
+      // <Redirect to='/' />
     )
   }
 }
@@ -39,9 +43,10 @@ const mapStateToProps = (state, ownProps) => {
   const id = ownProps.match.params.id;
   const jobs = state.jobs.jobs;
   // const job = jobs ? jobs[id] : null; // this is where things are messing up
-  console.log('id is: ', id);
+  // console.log('id is: ', id);
+  const job = jobs.find(job => job._id === id);
   return {
-    job: jobs.find(job => job._id === id)
+    job: job
   }
 }
 

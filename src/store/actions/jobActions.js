@@ -37,4 +37,24 @@ export const getJobs = () => {
   };
 }
 
+export const getJob = (_id) => {
+  return (dispatch, getState) => {
+    return fetch(`http://localhost:3001/job/${_id}`, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then((job) => {
+        console.log('job res is ', job);
+        dispatch({ type: 'GET_JOB', job })
+        return job;
+      }).catch((err) => {
+        dispatch({ type: 'GET_JOB_ERROR', err })
+      });
+  };
+}
+
 
