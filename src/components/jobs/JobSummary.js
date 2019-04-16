@@ -1,4 +1,5 @@
 import React from 'react'
+import moment from 'moment'
 
 const JobSummary = ({ job }) => {
   return(
@@ -6,7 +7,7 @@ const JobSummary = ({ job }) => {
       <div className="card-content">
         <span className="card-title">{ job.jobTitle } - { job._id }</span>
         <p>Company: { job.employer }</p>
-        <p className="grey-text">Date applied { job.dateApplied } 'March 27th, 2019'</p>
+        <p className="grey-text">Date applied: { moment(job.dateApplied).format('L') }</p>
       </div>
     </div>
   )
