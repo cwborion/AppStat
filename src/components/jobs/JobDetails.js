@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import moment from 'moment'
 // import { Redirect } from 'react-router-dom'
 
 const JobDetails = (props) => {
@@ -18,7 +19,7 @@ const JobDetails = (props) => {
               <p>{ job.employer }</p>
               <p>Description: { job.jobDescription }</p>
               <p>Emphasized skills: { job.skills }</p>
-              <p>Date applied to job: { job.dateApplied } 'March 27th, 2019'</p>
+              <p>Date applied to job: { moment(job.dateApplied).format('L') }</p>
               <p>Additional Notes/Responses: { job.notes }</p>
               <Link className="white-text edit-buttons" to={'/edit-job/' + props.match.params.id}>Edit Job Info</Link>
             </div>
