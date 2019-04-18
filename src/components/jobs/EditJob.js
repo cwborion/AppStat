@@ -12,8 +12,8 @@ class EditJob extends Component {
 
   handleSubmit = (job) => {
     this.props.updateJob(this.props.match.params.id, job);
-    this.props.history.push('/job/' + this.props.match.params.id);
-    // this.props.history.push('/');
+    // this.props.history.push('/job/' + this.props.match.params.id);
+    this.props.history.push('/');
   }
 
   render () {

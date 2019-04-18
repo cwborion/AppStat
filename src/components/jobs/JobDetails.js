@@ -19,7 +19,7 @@ const JobDetails = (props) => {
               <p>{ job.employer }</p>
               <p>Description: { job.jobDescription }</p>
               <p>Emphasized skills: { job.skills }</p>
-              <p>Date applied to job: { moment(job.dateApplied).format('L') }</p>
+              <p>Date applied to job: { moment(job.dateApplied).add(1, 'days').format('L') }</p>
               <p>Additional Notes/Responses: { job.notes }</p>
               <Link className="white-text edit-buttons" to={'/edit-job/' + props.match.params.id}>Edit Job Info</Link>
             </div>

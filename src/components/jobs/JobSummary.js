@@ -7,7 +7,7 @@ const JobSummary = ({ job }) => {
       <div className="card-content">
         <span className="card-title">{ job.jobTitle } - { job._id }</span>
         <p>Company: { job.employer }</p>
-        <p className="grey-text">Date applied: { moment(job.dateApplied).format('L') }</p>
+        <p className="grey-text">Date applied: { moment(job.dateApplied).add(1, 'days').format('L') }</p>
       </div>
     </div>
   )

@@ -46,6 +46,7 @@ const jobReducer = (state = initState, action) => {
         ...state,
         jobs: action.jobs
       };
+      // return state;
     case 'GET_ALL_JOBS_ERROR':
       console.log('get all jobs error', action.err);
       return state;

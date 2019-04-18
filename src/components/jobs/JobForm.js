@@ -11,7 +11,9 @@ class JobForm extends Component {
       employer: props.job ? props.job.employer : '',
       jobDescription: props.job ? props.job.jobDescription : '',
       skills: props.job ? props.job.employer : '',
-      dateApplied: props.job ? props.job.dateApplied : moment(Date.now()).format('YYYY-MM-DD'),
+      dateApplied: props.job ? 
+        moment(props.job.dateApplied).add(1, 'days').format('YYYY-MM-DD') : 
+        moment(Date.now()).format('YYYY-MM-DD'),
       notes: props.job ? props.job.notes : ''
     }
   }
@@ -24,7 +26,7 @@ class JobForm extends Component {
     this.setState({
       [e.target.id]: e.target.value
     })
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleSubmit = (e) => {
@@ -103,7 +105,8 @@ class JobForm extends Component {
               <input 
                 type='date' 
                 id='dateApplied' 
-                value={moment(this.state.dateApplied).format('YYYY-MM-DD')} 
+                // value={moment(this.state.dateApplied).format('YYYY-MM-DD')} 
+                value={this.state.dateApplied} 
                 onChange={this.handleChange} 
               />
             </div>
