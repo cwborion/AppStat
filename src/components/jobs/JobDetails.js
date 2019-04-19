@@ -52,6 +52,8 @@
 
 // export default connect(mapStateToProps)(JobDetails)
 
+// Should I need to use componentDidMount to get all this data from redux, or should above code work?
+
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
