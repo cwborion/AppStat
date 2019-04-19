@@ -12,13 +12,11 @@ class EditJob extends Component {
 
   handleSubmit = (job) => {
     this.props.updateJob(this.props.match.params.id, job);
-    // this.props.history.push('/job/' + this.props.match.params.id);
-    this.props.history.push('/');
+    this.props.history.push('/job/' + this.props.match.params.id);
+    // this.props.history.push('/');
   }
 
   render () {
-    // conditionally set up so that when editing, labels are active so that they don't overlap
-    // with pre-filled input state (MAY NOT NEED TO DO THIS, MIGHT ALREADY BE A MATERIALIZE FEATURE)
     const { job } = this.props;
     return (
       <div className="container">

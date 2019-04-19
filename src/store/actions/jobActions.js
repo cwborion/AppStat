@@ -30,7 +30,7 @@ export const getJobs = () => {
       .then((jobs) => {
         console.log('jobs res is ', jobs);
         dispatch({ type: 'GET_ALL_JOBS', jobs })
-        // return jobs;
+        return jobs;
       }).catch((err) => {
         dispatch({ type: 'GET_ALL_JOBS_ERROR', err })
       });
