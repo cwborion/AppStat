@@ -6,7 +6,6 @@ import { jobsSelector } from '../../store/selectors'
 
 class Dashboard extends Component {
   
-
   componentDidMount() {
     this.props.getJobs()
   }
