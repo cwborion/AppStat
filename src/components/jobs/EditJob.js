@@ -2,18 +2,19 @@ import React, { Component } from 'react'
 import JobForm from './JobForm'
 import { connect } from 'react-redux'
 import { getJob, updateJob } from '../../store/actions/jobActions'
+import { jobByIdSelector } from '../../store/selectors'
 
 class EditJob extends Component {
 
   componentDidMount() {
-    console.log('this.props are ', this.props)
+    // console.log('this.props are ', this.props)
     this.props.getJob(this.props.match.params.id)
   }
 
   handleSubmit = (job) => {
     this.props.updateJob(this.props.match.params.id, job);
-    this.props.history.push('/job/' + this.props.match.params.id);
-    // this.props.history.push('/');
+    // this.props.history.push('/job/' + this.props.match.params.id);
+    this.props.history.push('/');
   }
 
   render () {
@@ -28,11 +29,10 @@ class EditJob extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('state mapped in EditJob.js is', state)
+  // console.log('state mapped in EditJob.js is', state)
   const id = ownProps.match.params.id;
-  const jobs = state.jobs.jobs;
   return {
-    job: jobs.find(job => job._id === id)
+    job: jobByIdSelector(state, id)
   }
 }
 

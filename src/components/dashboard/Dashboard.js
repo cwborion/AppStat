@@ -2,19 +2,13 @@ import React, { Component } from 'react'
 import JobList from '../jobs/JobList'
 import { connect } from 'react-redux'
 import { getJobs } from '../../store/actions/jobActions'
+import { jobsSelector } from '../../store/selectors'
 
 class Dashboard extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      jobs: props.jobs
-    }
-    console.log(props)
-  }
+  
 
   componentDidMount() {
     this.props.getJobs()
-      console.log(this.state);
   }
 
   render() {
@@ -34,9 +28,9 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log('state mapped to props is: ', state);
+  // console.log('state mapped to props in Dashboard.js is: ', state);
   return {
-    jobs: state.jobs.jobs
+    jobs: jobsSelector(state)
   }
 }
 

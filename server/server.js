@@ -75,6 +75,7 @@ app.put('/job/edit/:id', (req, res) => {
     { new: true },
     (err, job) => {
       if (err) return res.status(500).send(err);
+      console.log('inside findByIdAndUpdate ', job)
       return res.send(job);
     }
   )

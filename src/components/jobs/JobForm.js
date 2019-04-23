@@ -17,10 +17,6 @@ class JobForm extends Component {
       notes: props.job ? props.job.notes : ''
     }
   }
-  
-  componentDidMount() {
-    console.log('props are' , this.props)
-  }
 
   handleChange = (e) => {
     this.setState({
@@ -31,7 +27,7 @@ class JobForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
     this.props.handleSubmit(this.state);
   }
   
