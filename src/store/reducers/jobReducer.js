@@ -33,6 +33,7 @@ const jobReducer = (state = initState, action) => {
     case 'ADD_JOB':
       console.log('add job', action.payload);
       return state;
+      // return state.map((job) => job._id === action.payload._id ? action.payload : job);
     case 'ADD_JOB_ERROR':
       console.log('add job error', action.payload);
       return state;
