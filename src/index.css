@@ -32,13 +32,17 @@ form {
   margin-top: 60px;
 }
 
-.edit-buttons {
+.edit-button {
   border: 1px solid rgb(148, 147, 147);
-  padding: 5px;
+  padding: 9px;
   background-color: rgb(37,166,154);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.delete-button {
+  margin-top: 12px;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import moment from 'moment'
-import { getJobs } from '../../store/actions/jobActions'
+import { getJobs, deleteJob } from '../../store/actions/jobActions'
 import { jobByIdSelector } from '../../store/selectors'
 
 class JobDetails extends Component {
@@ -10,6 +10,12 @@ class JobDetails extends Component {
   componentDidMount() {
     this.props.getJobs()
     // console.log(this.state);
+  }
+
+  handleDelete = () => {
+    const id = this.props.match.params.id;
+    this.props.deleteJob(id);
+    this.props.history.push('/');
   }
 
   render() {
@@ -26,7 +32,10 @@ class JobDetails extends Component {
                 <p>Emphasized skills: { job.skills }</p>
                 <p>Date applied to job: { moment(job.dateApplied).add(1, 'days').format('L') }</p>
                 <p>Additional Notes/Responses: { job.notes }</p>
-                <Link className="white-text edit-buttons" to={'/edit-job/' + this.props.match.params.id}>Edit Job Info</Link>
+                <br/>
+                <Link className="white-text edit-button" to={'/edit-job/' + this.props.match.params.id}>EDIT JOB INFO</Link> 
+                <br/>
+                <button className="btn red delete-button z-depth-0" onClick={this.handleDelete}>Delete Job</button>
               </div>
             </div>
           </div>
@@ -51,9 +60,12 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const id = ownProps.match.params.id;
+  console.log('id is', id);
   return {
-    getJobs: () => dispatch(getJobs())
+    getJobs: () => dispatch(getJobs()),
+    deleteJob: (id) => dispatch(deleteJob(id))
   }
 }
 

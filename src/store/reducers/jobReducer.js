@@ -55,6 +55,12 @@ const jobReducer = (state = initState, action) => {
     case 'UPDATE_JOB_ERROR':
       console.log('update job error', action.payload)
       return state;
+    case 'DELET_JOB':
+      console.log('delete job', action.payload)
+      return state;
+    case 'DELETE_JOB_ERROR': 
+      console.log('delete job error', action.payload)
+      return state;
     default:
       return state;
   }
