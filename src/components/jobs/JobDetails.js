@@ -53,7 +53,7 @@ class JobDetails extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  console.log('state is: ', state);
+  // console.log('state is: ', state);
   const id = ownProps.match.params.id;
   return {
     job: jobByIdSelector(state, id)
@@ -61,8 +61,8 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const id = ownProps.match.params.id;
-  console.log('id is', id);
+  // const id = ownProps.match.params.id;
+  // console.log('id is', id);
   return {
     getJobs: () => dispatch(getJobs()),
     deleteJob: (id) => dispatch(deleteJob(id))

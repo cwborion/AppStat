@@ -50,7 +50,7 @@ app.get('/jobs', (req, res) => {
     if (err)
       res.send(err);
     res.json(jobs);
-    console.log('response jobs is: \n', jobs)
+    // console.log('response jobs is: \n', jobs)
   });
 });
 
@@ -61,14 +61,14 @@ app.get('/job/:id', (req, res) => {
     if (err)
       res.send(err);
     res.json(job);
-    console.log('response job is: \n', job)
+    // console.log('response job is: \n', job)
   });
 });
 
 // PUT / update specific job by id
 
 app.put('/job/edit/:id', (req, res) => {
-  console.log('on job/edit/:id, req.body sent in is :\n', req.body);
+  // console.log('on job/edit/:id, req.body sent in is :\n', req.body);
   Job.findByIdAndUpdate(
     req.params.id,
     req.body,
@@ -84,13 +84,13 @@ app.put('/job/edit/:id', (req, res) => {
 // DELETE specific job by id
 
 app.delete('/job/delete/:id', (req, res) => {
-  console.log('on job/delete/:id, req.body sent in is :\n', req.body);
+  console.log('on job/delete/:id, req.params.id sent in is :\n', req.params);
   Job.deleteOne({
     _id: req.params.id
-  }, (err, job) => {
+  }, (err) => {
     if (err)
       res.send(err);
-    res.json({ message: 'Job successfully deleted' });
+    res.json({ id: req.params.id });
   })
 });
 

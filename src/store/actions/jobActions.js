@@ -106,22 +106,39 @@ export const updateJob = (id, job) => {
 };
 
 export const deleteJob = (id) => {
-  console.log('job id in DELETE job is', id);
+  // console.log('job id in DELETE job is', id);
   return (dispatch, getState) => {
     return fetch(`http://localhost:3001/job/delete/${id}`, {
-      method: 'DELETE',
-      mode: 'cors'
+      method: 'DELETE'
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then((job) => {
-      console.log('response from delete job is', job);
-      dispatch({ type: 'DELETE_JOB', payload: job })
-        return job;
+        dispatch({ type: 'DELETE_JOB', payload: job })
+        console.log('job deleted is', job)
     })
     .catch((err) => {
       dispatch({ type: 'DELETE_JOB_ERROR', payload: err })
-    });
+    }).catch(err => console.log(err))
   }
 }
+
+// export const deleteJob = (id) => {
+//   console.log('job id in DELETE job is', id);
+//   return (dispatch, getState) => {
+//     return fetch(`http://localhost:3001/job/delete/${id}`, {
+//       method: 'DELETE',
+//       mode: 'cors'
+//     })
+//     .then(response => response.json())
+//     .then((job) => {
+//       console.log('response from delete job is', job);
+//       dispatch({ type: 'DELETE_JOB', payload: job })
+//         return job;
+//     })
+//     .catch((err) => {
+//       dispatch({ type: 'DELETE_JOB_ERROR', payload: err })
+//     });
+//   }
+// }
 
 
