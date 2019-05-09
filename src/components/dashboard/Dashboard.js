@@ -10,6 +10,14 @@ class Dashboard extends Component {
     this.props.getJobs()
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate firing!', prevProps)
+    if (this.state !== prevState) {
+      this.props.getJobs();
+    }
+  }
+  // perhaps put setState call in componentDidUpdate()?
+
   render() {
     // console.log('props are: ', this.props);
     const { jobs } = this.props;

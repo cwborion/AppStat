@@ -32,7 +32,10 @@ const jobReducer = (state = initState, action) => {
   switch (action.type) {
     case 'ADD_JOB':
       console.log('add job', action.payload);
-      return [...state, action.payload];
+      return [
+        ...state, 
+        action.payload
+      ];
     case 'ADD_JOB_ERROR':
       console.log('add job error', action.payload);
       return state;
@@ -57,7 +60,6 @@ const jobReducer = (state = initState, action) => {
     case 'DELETE_JOB':
       console.log('deleted job id is ', action.payload.id)
       return state.filter( job => job._id !== action.payload.id);
-      // return state;
     case 'DELETE_JOB_ERROR': 
       console.log('delete job error', action.payload)
       return state;
